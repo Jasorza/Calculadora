@@ -81,3 +81,10 @@ li {
 	border: 1.5px solid #A64602;
 }
 
+.signo:hover{
+  background-color: #FF6900;
+	color: white;
+	box-shadow:inset 3px 3px 10px 1px #AD4800;
+	text-shadow: 1px 2px 4px #5E5E5E;
+	border: 1.5px solid #A64602;
+}
