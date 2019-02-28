@@ -88,3 +88,19 @@ li {
 	text-shadow: 1px 2px 4px #5E5E5E;
 	border: 1.5px solid #A64602;
 }
+
+.decimal:hover{
+  background-color: #FF6900;
+	color: white;
+	box-shadow:inset 3px 3px 10px 1px #AD4800;
+	text-shadow: 1px 2px 4px #5E5E5E;
+	border: 1.5px solid #A64602;
+}
+
+.igual:hover{
+  background-color: #FF6900;
+	color: white;
+	box-shadow:inset 3px 3px 10px 1px #AD4800;
+	text-shadow: 1px 2px 4px #5E5E5E;
+	border: 1.5px solid #A64602;
+}
