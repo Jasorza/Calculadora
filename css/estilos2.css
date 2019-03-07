@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin:0;
     padding: 0;
     text-decoration: none;
     list-style: none;
@@ -9,7 +9,7 @@
 center{
     position: relative;
     margin: 20px auto;
-    width: 600px;
+    width: 600px; 
     height: 60px;
     text-align: center;
     line-height: 60px;
@@ -21,11 +21,11 @@ center{
 }
 
 #calculadora{
-    position: ralative;
+    position: relative;
     margin: 20px auto;
     width: 400px;
     height: 600px;
-    border: 1px solid#aaa;
+    border: 1px solid #aaa;
     border-radius: 20px;
     background: #ddd;
 }
@@ -48,14 +48,14 @@ center{
     margin-left: 5px;
 }
 
-#calculadora ul li{
-    float: left;
+#calculadora li{
+    float:left;
     padding: 32px;
     width: 15px;
     text-align: center;
     margin: 8px;
     background: white;
-    border: 1px solid#aaa;
+    border: 1px solid #aaa;
     border-radius: 5px;
     box-shadow: 5px 5px 10px #999;
     font-weight: bold;
@@ -74,11 +74,11 @@ center{
 
 #borrar{
     position: absolute;
-    bottom: 10px;
+    bottom:10px;
     padding: 5px 15px;
     width: 60px;
-    background: rgb(255, 155, 0);
-    border-radius: 5px solid #bbb;
+    background: rgb(255, 115, 0);
+    border-radius: 10px ;
     left: 150px;
     border: 5px solid #bbb;
     color: white;
@@ -86,7 +86,7 @@ center{
 }
 
 #borrar:hover{
-    background: rgb(255, 115, 0);
+    background:rgb(255, 115, 0); 
 }
 
 #borrar:active{
