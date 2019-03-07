@@ -1,74 +1,70 @@
-//** Objetos para definir las propiedades de la calculadora */
-var proCal = {
-    teclado: document.querySelectorAll('#calculadora ul li'),
-    accion: null,
-    operaciones: document.querySelector('#calculadora'),
-    digito: 0,
-    cantSigno: 0,
-    cantDecimal: false
+/*Objeto para definir las propiedades de la calculadora */
+var propCal={
+    teclado:document.querySelectorAll('#calculadora ul li'),
+    accion:null,
+    operaciones:document.querySelector('#operaciones'),
+    digito:0,
+    cantidadSigno:0,
+    cantidadDecimal:false
 }
-//** Objetos para definir todos los metodos que vamos a definiren la calculadora */
-var metCal = {
-    inicio: function () {
-        /*console.log(proCal.teclado);*/
-        proCal.teclado.forEach(element => {
-            element.addEventListener('click', metCal.oprimirTecla);
+
+//Objeto para definir todos los metodos que vamos a definir en la calculadora
+var metCal={
+    inicio:function(){
+        //console.log(propCal.teclado);
+        propCal.teclado.forEach(element => {
+            element.addEventListener('click',metCal.oprimirTecla);
         })
     },
-    oprimirTecla: function (tecla) {
-        /*console.log(tecla);*/
-        proCal.accion = tecla.target.getAttribute('class');
-        /*console.log(proCal.accion);*/
-        proCal.digito = tecla.target.innerHTML;
-        console.log(proCal.digito);
-        metCal.calculadora(proCal.accion, proCal.digito);
-    },
-    calculadora: function (accion, digito) {
+    oprimirTecla:function(tecla){
+        console.log(tecla);
+        propCal.accion=tecla.target.getAttribute('class');
+        //console.log(propCal.accion);
+        propCal.digito=tecla.target.innerHTML;
+        console.log(propCal.digito);
+        metCal.calculadora(propCal.accion,propCal.digito);
+    } ,
+    calculadora:function(accion,digito){
         switch (accion) {
             case 'numero':
-                proCal.cantSigno = 0;
-                console.log(proCal.cantSigno);
-                if (proCal.operaciones.innerHTML == 0) {
-                    proCal.operaciones.innerHTML = digito;
-                } else {
-                    proCal.operaciones.innerHTML = digito;
+                propCal.cantidadSigno=0;
+                console.log(propCal.cantidadSigno);
+                if (propCal.operaciones.innerHTML==0) {
+                    propCal.operaciones.innerHTML=digito;
+                }else{
+                //console.log(accion);
+                propCal.operaciones.innerHTML+=digito;
                 }
-                proCal.operaciones.innerHTML += digito;
                 break;
-
             case 'signo':
-                proCal.cantSigno++;
-                console.log(proCal.cantSigno);
-                if (proCal.cantSigno == 1) {
-                    if(proCal.operaciones.innerHTML == 0){
-                        proCal.operaciones.innerHTML = 0;
+                propCal.cantidadSigno++;
+                console.log(propCal.cantidadSigno);
+                if (propCal.cantidadSigno==1 ) {
+                    if (propCal.operaciones.innerHTML==0) {
+                        propCal.operaciones.innerHTML=0;
                     }else{
-                        proCal.operaciones.innerHTML += digito;
-                        proCal.cantDecimal=false;
+                    propCal.operaciones.innerHTML+=digito;
+                    propCal.cantidadDecimal=false;
                     }
                 }
                 console.log(accion);
                 break;
-
             case 'decimal':
-                if (!proCal.cantDecimal && proCal.cantSigno != 1) {
-                    proCal.operaciones.innerHTML += digito;
-                    proCal.cantDecimal = true;
+                if (!propCal.cantidadDecimal && propCal.cantidadSigno!=1) {
+                    propCal.operaciones.innerHTML+=digito;
+                    propCal.cantidadDecimal=true;
                 }
                 console.log(accion);
                 break;
-
             case 'igual':
-                proCal.operaciones.innerHTML=eval(proCal.operaciones.innerHTML);
+                propCal.operaciones.innerHTML=eval(propCal.operaciones.innerHTML);
                 console.log(accion);
-                break;
-
             default:
                 break;
         }
     },
-    borrar: function () {
-        proCal.operaciones.innerHTML = 0;
-    }
+    borrar:function(){
+        propCal.operaciones.innerHTML=0;
+    }     
 }
 metCal.inicio();
