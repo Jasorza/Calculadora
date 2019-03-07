@@ -4,7 +4,8 @@ var proCal = {
     accion: null,
     operaciones: document.querySelector('#calculadora'),
     digito: 0,
-    cantSigno: 0
+    cantSigno: 0,
+    cantDecimal: false
 }
 //** Objetos para definir todos los metodos que vamos a definiren la calculadora */
 var metCal = {
@@ -25,33 +26,43 @@ var metCal = {
     calculadora: function (accion, digito) {
         switch (accion) {
             case 'numero':
-                proCal.cantSigno=0;
+                proCal.cantSigno = 0;
                 console.log(proCal.cantSigno);
                 if (proCal.operaciones.innerHTML == 0) {
                     proCal.operaciones.innerHTML = digito;
                 } else {
-                    proCal.operaciones.innerHTML += digito;
+                    proCal.operaciones.innerHTML = digito;
                 }
                 proCal.operaciones.innerHTML += digito;
                 break;
+
             case 'signo':
                 proCal.cantSigno++;
                 console.log(proCal.cantSigno);
                 if (proCal.cantSigno == 1) {
-                    proCal.operaciones.innerHTML += digito;
+                    if(proCal.operaciones.innerHTML == 0){
+                        proCal.operaciones.innerHTML = 0;
+                    }else{
+                        proCal.operaciones.innerHTML += digito;
+                        proCal.cantDecimal=false;
+                    }
                 }
-                proCal.operaciones.innerHTML = digito;
                 console.log(accion);
                 break;
+
             case 'decimal':
+                if (!proCal.cantDecimal && proCal.cantSigno != 1) {
+                    proCal.operaciones.innerHTML += digito;
+                    proCal.cantDecimal = true;
+                }
                 console.log(accion);
                 break;
+
             case 'igual':
+                proCal.operaciones.innerHTML=eval(proCal.operaciones.innerHTML);
                 console.log(accion);
                 break;
-            case 'igual':
-                console.log(accion);
-                break;
+
             default:
                 break;
         }
